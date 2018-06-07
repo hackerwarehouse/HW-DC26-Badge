@@ -1,0 +1,14 @@
+REM open xterm, run id and ifconfig
+DEFAULTDELAY 1000
+ALT F2
+STRING xterm
+ENTER
+DELAY 2000
+STRING nano
+ENTER
+STRING hello world
+ENTER
+CTRL x
+STRING n
+STRING #done
+ENTER

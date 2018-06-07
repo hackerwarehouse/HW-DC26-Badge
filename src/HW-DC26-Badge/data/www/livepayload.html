@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Live KB/M Payload | Hacker Warehouse DC26 badge</title>
+<script src="functions.js"></script>
+<link rel="stylesheet" href="skeleton.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="/">Home </a>
+<a href="/livepayload.html">Live KB/M Payload</a>
+<a href="/storedpayloads.html">Stored KB/M Payloads</a>
+<a href="/edit">SPIFFS editor</a>
+<a href="/WebSocketTester.html">WebSocketTester</a>
+<a href="/update.html">SysUpdate</a>
+</nav>
+		
+		<div id="error"></div>
+		<div class="container">
+			<div class="row">
+				<div class="twelve columns">
+					<h1 class="header">Live KB/M Payload</h1>
+					
+					<form>
+						<textarea id="scriptTextArea" name='script' maxlength="1024" placeholder="STRING Hello World!" onkeyup="count()" onkeydown="count()" onchange="count()"></textarea>
+						<p><span id="charCount">0</span> / 1024</p>
+					</form>
+					<button onclick="run()" class="button-primary right">run script</button>
+					
+					<br />
+					<br />
+					<br />
+					
+					<table>
+						<tr>
+							<th>Main Commands</th>
+							<th>Description</th>
+						</tr>
+						
+						<tr>
+							<td>STRING</td>
+							<td>Types the following string</td>
+						</tr>
+						
+						<tr>
+							<td>MOUSEMOVE x,y</td>
+							<td>Moves mouse. Positive numbers move right or up. Negative numbers move left or down. </td>
+						</tr>
+						
+						<tr>
+							<td>DEFAULTDELAY</td>
+							<td>Time in ms betweet every command</td>
+						</tr>
+						
+						<tr>
+							<td>DELAY</td>
+							<td>Delay in ms</td>
+						</tr>
+						
+						<tr>
+							<td>REPLAY</td>
+							<td>Repeats the last command n times</td>
+						</tr>
+						
+						<tr>
+							<td>ENTER</td>
+							<td>Return key</td>
+						</tr>
+						
+						<tr>
+							<td>REM</td>
+							<td>Comment</td>
+						</tr>
+					</table>
+						
+          <table>
+						<tr>
+							<th>Modifier Keys</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>GUI</td>
+							<td>Windows or CMD key</td>
+						</tr>
+						
+						<tr>
+							<td>SHIFT</td>
+							<td>Shift key</td>
+						</tr>
+						
+						<tr>
+							<td>ALT</td>
+							<td>Alt key</td>
+						</tr>
+						
+						<tr>
+							<td>CTRL</td>
+							<td>Ctrl key</td>
+						</tr>
+						
+						<tr>
+							<td>DELETE</td>
+							<td>Backspace key</td>
+						</tr>
+						
+						<tr>
+							<td>ESC</td>
+							<td>ESC key</td>
+						</tr>
+						
+						<tr>
+							<td>INSERT</td>
+							<td>Insert key</td>
+						</tr>
+						
+						<tr>
+							<td>SPACE</td>
+							<td>Space key</td>
+						</tr>
+						
+						<tr>
+							<td>TAB</td>
+							<td>Tabulator key</td>
+						</tr>
+						
+						<tr>
+							<td>DOWN</td>
+							<td>Down Arrow Key</td>
+						</tr>
+						
+						<tr>
+							<td>LEFT</td>
+							<td>Left Arrow Key</td>
+						</tr>
+						
+						<tr>
+							<td>RIGHT</td>
+							<td>Right Arrow Key</td>
+						</tr>
+						
+						<tr>
+							<td>UP</td>
+							<td>Up Arrow Key</td>
+						</tr>
+						
+						<tr>
+							<td>CAPSLOCK</td>
+							<td>Toggles Capslock</td>
+						</tr>
+						
+						<tr>
+							<td>HOME</td>
+							<td>Home key</td>
+						</tr>
+						
+						<tr>
+							<td>APP</td>
+							<td>App key</td>
+						</tr>
+						
+						<tr>
+							<td>MENU</td>
+							<td>Menu key</td>
+						</tr>
+						
+						<tr>
+							<td>PAGEUP</td>
+							<td>Pageup key</td>
+						</tr>
+						
+						<tr>
+							<td>PAGEDOWN</td>
+							<td>Pagedown key</td>
+						</tr>
+						
+						
+					</table>
+					
+					<p>
+						For more information about Ducky Script click <a href="https://github.com/hak5darren/USB-Rubber-Ducky">here</a>
+					</p>
+					
+				</div>
+			</div>
+		</div>
+		<script>
+		
+			function count(){
+				document.getElementById("charCount").innerHTML = document.getElementById("scriptTextArea").value.length;
+			}
+			
+			function run(){
+				var script = document.getElementById("scriptTextArea").value.replace(/\r\n|\r|\n/g, '@@@');
+				getResponse("runtext?text="+script,function(responseText){
+					if(responseText == "true") showMessage("Executing Script...",2500);
+				},undefined,undefined, "POST");
+			}
+		</script>
+	</body>
+</html>

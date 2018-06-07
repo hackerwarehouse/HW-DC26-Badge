@@ -1,0 +1,115 @@
+HW-DC26-Badge-20180603.bin
+ New
+  - Webserver via ESPAsyncWebServer and AsyncTCP libraries
+  - SPIFFS live editor / file upload via webserver
+  - Firmware update via webserver
+  - Live Keyboard/Mouse payload via webserver
+  - Stored Keyboard/Mouse payloads can be triggered via webserver
+ Updates / Tweaks
+  - KB injection call does basic checks first before attempting to run
+  - Early Supporters list
+ Known Bugs / Limitations
+  - MINOR: NTP_OFFSET is an int and some timezone offsets are greater than that size. NTP library itself needs fixing. Doesn't impact TOTP
+  - MINOR: SPIFFS file writing /w file name length and directories. Doesn't impact demo payloads
+  - MINOR: max file name length for payloads is 40 chars
+  - MINOR: dynamic menu names have max length of 15 chars
+  - ?    : stability due to lack of ram available for large tasks (SPIFFS live editor)
+ Compile notes:
+   Sketch uses 843890 bytes of program storage space. Maximum is 1310720 bytes.
+   Global variables use 43216 bytes (14%) of dynamic memory, leaving 251696 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180522.bin
+ New
+  - Custom KB injection naming/ordering in menu via json files
+ Updates / Tweaks
+  - Moved static strings configuration to its own json file
+ Fixed
+  - Static strings injection
+ Known Bugs / Limitations
+  - MINOR: NTP_OFFSET is an int and some timezone offsets are greater than that size. NTP library itself needs fixing. Doesn't impact TOTP
+  - MINOR: SPIFFS file writing /w file name length and directories. Doesn't impact demo payloads
+  - MINOR: max file name length for payloads is 40 chars
+  - MINOR: dynamic menu names have max length of 15 chars
+ Compile notes:
+   Sketch uses 764814 bytes of program storage space.
+   Global variables use 42696 bytes (14%) of dynamic memory, leaving 252216 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180515.bin
+ New
+  - AP start/stop/info display service
+  - Static strings kb injection module /w custom names via config.json
+ Updates / Tweaks
+  - Google Auth code can now be inserted for user via usb kb injection if pressing right button while in app
+  - Graphic image updates
+  - Change loop structure on majority of functions
+  - Ducky compatible parser for kb injection
+  - Standardized mouse button and movement triggers
+ Known Bugs / Limitations
+  - MINOR: NTP_OFFSET is an int and some timezone offsets are greater than that size. NTP library itself needs fixing. Doesn't impact TOTP
+  - MINOR: SPIFFS file writing /w file name length and directories. Doesn't impact demo payloads
+ Compile notes:
+   Sketch uses 762986 bytes of program storage space.
+   Global variables use 42064 bytes (14%) of dynamic memory, leaving 252848 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180508.bin
+ New
+  - Time based One Time Password (TOTP) - make sure NTP is running for clock sync
+  - Google Authenticator using TOTP via user key in spiffs
+ Fixed
+  - Internet connection logic
+  - NTP server connection issue
+  - Flashlight lowest mode
+ Known Bugs / Limitations
+  - MINOR: NTP_OFFSET is an int and some timezone offsets are greater than that size. NTP library itself needs fixing. Doesn't impact TOTP
+ Compile notes:
+   Sketch uses 756498 bytes of program storage space. 
+   Global variables use 41832 bytes (14%) of dynamic memory, leaving 253080 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180506.bin
+ New
+  - Keyboard sequence pass through from esp32 to 32u4 for keyboard injection on computer
+  - Mouse sequence pass through from esp32 to 32u4 for mouse injection on computer
+  - NTP client - pacific time default for Las Vegas
+ Updates / Tweaks
+  - File and menu organization to support feature expansion
+  - Internet ssid / password settings in spiffs
+  - Optimized connection attempts to internet ssid
+ Compile notes:
+   Sketch uses 754658 bytes of program storage space.
+   Global variables use 41648 bytes (14%) of dynamic memory, leaving 253264 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180505.bin
+ Updates / Tweaks
+  - Flashlight now starts at lowest setting
+  - Snake game added back in
+  - Button echo added back in
+  - Keyboard demo added back in
+ Fixed
+  - String importing on json config file
+ Compile notes:
+   Sketch uses 743770 bytes of program storage space. 
+   Global variables use 41452 bytes (14%) of dynamic memory, leaving 253460 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180504.bin
+ Updates / Tweaks
+  - Added back in Channel AP Scanner
+  - Display code logic
+  - Added back in and updated packet / deauth sniffer
+ Compile notes:
+   Sketch uses 736418 bytes of program storage space.
+   Global variables use 41260 bytes (13%) of dynamic memory, leaving 253652 bytes for local variables. Maximum is 294912 bytes.
+
+HW-DC26-Badge-20180503.bin
+ New
+  - spiffs for configuration save. removed eeprom versions as esp32 eeprom support is currently buggy
+  - Firmware OTA update
+ Updates / Tweaks
+  - Added back in AP Scanner
+  - Split out oled and led brightness settings
+  - Changed UX on oled and led brightness settings for quicker user feedback
+ Fixed
+  - Oled on power on
+  - LEDs that randomly stay on at power on
+ Compile notes:
+   Sketch uses 726558 bytes of program storage space. 
+   Global variables use 40508 bytes (13%) of dynamic memory, leaving 254404 bytes for local variables. Maximum is 294912 bytes.

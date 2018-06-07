@@ -1,0 +1,9 @@
+REM run a command prompt, run ipconfig
+DEFAULTDELAY 500
+GUI r
+STRING cmd
+ENTER
+STRING ipconfig
+ENTER
+STRING rem done
+ENTER

@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Stored KB/M Payloads | Hacker Warehouse DC26 badge</title>
+<script src="functions.js"></script>
+<link rel="stylesheet" href="skeleton.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="/">Home </a>
+<a href="/livepayload.html">Live KB/M Payload</a>
+<a href="/storedpayloads.html">Stored KB/M Payloads</a>
+<a href="/edit">SPIFFS editor</a>
+<a href="/WebSocketTester.html">WebSocketTester</a>
+<a href="/update.html">SysUpdate</a>
+</nav>
+		
+		<div id="error"></div>
+		<div class="container">
+			<div class="row">
+				<div class="twelve columns">
+					<h1 class="header">Windows Scripts</h1>					
+					<table id="winscriptlist">
+					</table>
+					<h1 class="header">Linux Scripts</h1>					
+					<table id="linscriptlist">
+					</table>
+					
+				</div>
+			</div>
+		</div>
+
+<script>
+			function loadwinlist(){
+				getResponse("/win.json",function(responseText){
+				  var res;
+					res = JSON.parse(responseText);
+					var table = document.getElementById("winscriptlist");
+					var tableHTML = "<tr><th>Name</th><th>File</th><th>Run</th></tr>";
+					for(var i=0;i<res.NAMES.length;i++){
+						tableHTML += "<tr>";
+						tableHTML += "<td>"+res.NAMES[i]+"</td>";
+						tableHTML += "<td>"+res.FILES[i]+"</td>";
+						tableHTML += "<td><button class='selectBtn' onclick='run(\""+res.FILES[i]+"\")'>run</button></td>";
+						tableHTML += "</tr>";
+					}
+					table.innerHTML = tableHTML;
+				});
+			}
+			loadwinlist();
+			
+			function loadlinlist(){
+				getResponse("/lin.json",function(responseText){
+				  var res;
+					res = JSON.parse(responseText);
+					var table = document.getElementById("linscriptlist");
+					var tableHTML = "<tr><th>Name</th><th>File</th><th>Run</th></tr>";
+					for(var i=0;i<res.NAMES.length;i++){
+						tableHTML += "<tr>";
+						tableHTML += "<td>"+res.NAMES[i]+"</td>";
+						tableHTML += "<td>"+res.FILES[i]+"</td>";
+						tableHTML += "<td><button class='selectBtn' onclick='run(\""+res.FILES[i]+"\")'>run</button></td>";
+						tableHTML += "</tr>";
+					}
+					table.innerHTML = tableHTML;
+				});
+			}
+			loadlinlist();
+			
+			function run(i){
+				getResponse("runscript?name="+i,function(responseText){
+					console.log(responseText);
+				},undefined,undefined,"POST");
+			}
+		</script>
+
+
+	</body>
+</html>

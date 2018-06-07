@@ -1,0 +1,11 @@
+REM run notepad via windows+r button, input text, trigger buttons
+DEFAULTDELAY 500
+GUI r
+STRING notepad
+ENTER
+STRING hello world
+ENTER
+ALT f s
+DELAY 1000
+ESCAPE
+STRING done

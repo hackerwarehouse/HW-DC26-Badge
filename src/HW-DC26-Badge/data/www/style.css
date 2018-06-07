@@ -1,0 +1,41 @@
+/* Global */
+
+nav{
+	background: #222;
+}
+nav a{
+	background: #222;
+	color: #999;
+	padding: 0.5em;
+	display: inline-block;
+	text-decoration: none;
+}
+nav a:hover{
+	background: #000;
+	color:#f0f0f0;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.bold{
+	font-weight: bold;
+}
+.margin-left{
+	margin-left: 1rem;
+}
+.clear{
+	clear: both;
+}
+#scriptTextArea{
+	width:100%;
+	height:20rem;
+}
+#error{
+	text-align: center;
+	color: #fff;
+	background: #f00;
+}
+

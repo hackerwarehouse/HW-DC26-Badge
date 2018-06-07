@@ -1,0 +1,12 @@
+REM open xterm, run id and ifconfig
+DEFAULTDELAY 1000
+ALT F2
+STRING xterm
+ENTER
+DELAY 2000
+STRING id
+ENTER
+STRING ifconfig
+ENTER
+STRING #done
+ENTER

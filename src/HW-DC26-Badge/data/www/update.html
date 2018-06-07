@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>System Update | Hacker Warehouse DC26 badge</title>
+<link rel="stylesheet" href="skeleton.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="/">Home </a>
+<a href="/livepayload.html">Live KB/M Payload</a>
+<a href="/storedpayloads.html">Stored KB/M Payloads</a>
+<a href="/edit">SPIFFS editor</a>
+<a href="/WebSocketTester.html">WebSocketTester</a>
+<a href="/update.html">SysUpdate</a>
+</nav>
+
+<p class="bold">Update device firmware using 'update.bin' on filesystem. (Use SPIFFS editor to upload file)</p>
+<form method='POST' action='/update'>
+Confirm:<input type="checkbox" name="confirm" value="true"/>
+<input type='submit' class="button-primary right" value='Update'>
+</form>
+
+</body>
+</html>
