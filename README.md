@@ -8,7 +8,7 @@ This is the project page for the Hacker Warehouse electronic badge that was made
 * Atmel 32u4
 * 96×64 Graphic Full Color OLED Display
 * 14x Mini NeoPixel RGB LEDs
-* 4 tactile buttons arranged in Joypad configuration
+* 4 tactile buttons
 * 8 Mb Storage
 * 2x2 "[Shitty Add-on](https://hackaday.io/project/52950-defcon-26-shitty-add-ons "Shitty Add-on")" support
 * Powered via 2 AA batteries or USB
@@ -33,6 +33,7 @@ This is the project page for the Hacker Warehouse electronic badge that was made
 ## Usage Instructions
 ### Buttons / UI
 ![](https://files.hackerwarehouse.com/HW-DC26-Badge/button-labels.jpg)
+
 Up and Down is on the left side of the OLED, and Left and Right is on the right side of the OLED. From left most to right:  Down / Up / Left / Right
 
 In order to go into a menu or run a program, click the right button. To exit most applications, click the left button. Some programs like the snake game require all 4 buttons so there is no way to clean exit, a power cycle is needed. 
@@ -54,6 +55,8 @@ This mode is utilized if you have a device that you don't want the screen saver 
 
 ### Google Authenticator
 This mode requires the badge to be connected to an access point that has internet connectivity so it can reach a time server as there is no RTC on the device itself. In the WiFi client tools menu, connect to an AP and make sure NTP is running. From there, in the HID Arsenal menu select the 'Google Auth (TOTP)' submenu. The six digit time based unique code will refresh every seconds. Press the right button to insert that set of digits automatically assuming the badge is connected through USB. 
+
+![](https://files.hackerwarehouse.com/HW-DC26-Badge/google-authenticator-C0048T01a.JPG)
 
 ### Webserver
 Navigate to WiFi Server Tools -> Webserver Start. You can access the webserver if running an AP or if connected. The pages are protected through basic authentication, username and password generated dynamically and is provided on the screen.
