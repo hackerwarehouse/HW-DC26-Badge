@@ -31,6 +31,9 @@ This is the project page for the Hacker Warehouse electronic badge that was made
 * Misc. extras
 
 ## Usage Instructions
+### Power Switch
+In order to turn on the device, it must be powered via 2 AA batteries or USB. The main power switch is between the eyes.
+
 ### Buttons / UI
 ![](https://files.hackerwarehouse.com/HW-DC26-Badge/button-labels.jpg)
 
